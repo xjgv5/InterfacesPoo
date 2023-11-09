@@ -6,13 +6,13 @@ import static org.xjgv.poointerfaces.imprenta.modelo.Genero.*;
 
 public class EjemploImprenta {
     public static void main(String[] args) {
-        Curriculum cv = new Curriculum("John Doe", "Ingeniero en sistemas", "Resumen laboral de John Doe");
-        cv.addExperiencia("Java developer");
-        cv.addExperiencia("Oracle DBA");
-        cv.addExperiencia("Desarrollador Angular");
-        cv.addExperiencia("Springboot");
+        Curriculum cv = new Curriculum(new Persona("John", "Doe"), "Ingeniero en sistemas", "Resumen laboral de John Doe");
+        cv.addExperiencia("Java developer")
+            .addExperiencia("Oracle DBA")
+            .addExperiencia("Desarrollador Angular")
+            .addExperiencia("Springboot");
 
-        Libro libro = new Libro("Erich Gamma", "Patrones de diseño",
+        Libro libro = new Libro(new Persona("Erich", "Gamma"), "Patrones de diseño",
                 PROGRAMACION);
 
         libro.addPagina(new Pagina("PATRON SINGLETON"))
@@ -20,7 +20,7 @@ public class EjemploImprenta {
                 .addPagina(new Pagina("Patron Factory"))
                 .addPagina(new Pagina("Patron Facade"));
 
-        Informe informe = new Informe("Estudio sobre microservicios", "Martin Fowler", "James");
+        Informe informe = new Informe("Estudio sobre microservicios", new Persona("Martin", "Fowler"), new Persona("James", "Sagan"));
 
         imprimir(cv);
         imprimir(informe);
